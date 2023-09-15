@@ -1,30 +1,43 @@
 @charset "utf-8";
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
-
+@font-face {
+  font-family: 'SEBANG_Gothic_Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/SEBANG_Gothic_Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 :root{
   --square-flex-width:20%;
+  --board-color:#8a8a8a;
+  --piece-hover-color:#d6d6d6;
+  --piece-check-color:#da8c8c;
+  --checkPiece-hover-color:#ffa2a2; 
+  --piece-open-color:#ddd;
+  --piece-default-color:#bbb;
 }
+
 /* reset */
 *{margin: 0;padding: 0;}
 ul, ol{list-style-type: none;}
 a{text-decoration: none; color: inherit;}
 img{display: block;}
-body{font-family: 'Noto Sans KR', sans-serif;}
+body{font-family: 'SEBANG_Gothic_Bold', sans-serif;}
 
 /* body * {outline: 1px dotted red;} */
 
 h1{user-select: none;}
 
 
-ul{display: flex; flex-wrap: wrap;  margin: 100px auto; background-color: #8a8a8a; padding: 10px;}
-ul li{width: var(--square-flex-width); display: flex; justify-content: center; align-items: center; font-size: 24px; box-sizing: border-box; background-color: #bbb; padding: 4px; height: var(--square-flex-width); }
+ul{display: flex; flex-wrap: wrap;  margin: 100px auto; background-color: var(--board-color); padding: 10px;}
+ul li{width: var(--square-flex-width); display: flex; justify-content: center; align-items: center; font-size: 24px; box-sizing: border-box; background-color: var(--piece-default-color); padding: 4px; height: var(--square-flex-width); }
 ul li a{display: block; width: 100%; height: 100%; transition: .2s; border: 2px solid rgb(75, 75, 75); border-collapse: collapse; box-sizing: border-box;}
 
-ul li a span{ display: block; width: 100%; height: 100%; text-align: center; background-color: #ddd; transition: .3s; transform: rotateY(-180deg); backface-visibility: hidden; pointer-events: none;}
-ul li a:hover{ background-color: #ececec; }
+ul li a span{ display: block; width: 100%; height: 100%; text-align: center; background-color: var(--piece-open-color); transition: .3s; transform: rotateY(-180deg); backface-visibility: hidden; pointer-events: none; font-size: 24px; line-height: 40px; user-select: none;}
+ul li a:hover{ background-color: var(--piece-hover-color); }
+ul li a.guessMine:hover{ background-color: var(--checkPiece-hover-color); }
 
 
 button{padding: 10px 40px;}
 
 .clicked{transform: rotateY(0);}
-.guessMine{background-color: #bea3a3;}
+.guessMine{background-color: var(--piece-check-color);}
